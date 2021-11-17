@@ -1,7 +1,10 @@
 const express = require("express");
 var app = express();
+const bodyParser = require("body-parser")
 
 var port = process.env.PORT || 8088
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json)
 app.use(express.json());
 var appliances = [
     { id: 1, name: "Juicer", quantity: 3 },
@@ -11,7 +14,9 @@ var appliances = [
 
 app.use(express.json()) // middlewear called to interect with outer world via post. i will connect your machine 
     // with the server
-
+app.get("/", (request, response) => {
+    response.sendFile(__dirname, "/web.html")
+})
 app.get("/appliances", (request, response) => {
     //response.send("This is the list of students " + JSON.stringify(students));
     var result = `<table border=2 >
@@ -29,8 +34,7 @@ app.get("/appliances", (request, response) => {
 
     })
     response.send(result)
-})
-app.post("/appliances", (request, responses) => {
+}) app.post("/appliances", (request, responses) => {
     var appliance = {
         id: appliances.length + 1,
         name: request.body.name,
@@ -38,8 +42,7 @@ app.post("/appliances", (request, responses) => {
     }
     appliances.push(appliance)
     response.send("Data is added to the main streem")
-})
-app.put("/appliance/:id", (request, response) => {
+}) app.put("/appliance/:id", (request, response) => {
 
     var appliance = appliances.find(i => i.id === parseInt(request.params.id))
         // var index = students.indexOf(student)
@@ -58,8 +61,8 @@ app.delete("/appliance/:id", (request, response) => {
 })
 
 app.get("/", (request, response) => {
-    response.send("This is my first Heroku deployment app running on port " + port);
-})
-app.listen(port, () => {
-    console.log("The server is up and running on port " + port);
+response.send("This is my first Heroku deployment app running on port " + port);
+}) app.listen(port, () => {
+console.log("The server is up and running on port " + port);
+}) console.log("The server is up and running on port " + port);
 })
