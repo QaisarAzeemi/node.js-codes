@@ -1,10 +1,10 @@
 const express = require("express");
 var app = express();
-const bodyParser = require("body-parser")
+//const bodyParser = require("body-parser")
 
 var port = process.env.PORT //|| 8088
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json)
+    //app.use(bodyParser.urlencoded({ extended: false }))
+    //app.use(bodyParser.json)
 app.use(express.json());
 var appliances = [
     { id: 1, name: "Juicer", quantity: 3 },
@@ -14,9 +14,9 @@ var appliances = [
 
 app.use(express.json()) // middlewear called to interect with outer world via post. i will connect your machine 
     // with the server
-app.get("/web", (request, response) => {
-    response.sendFile(__dirname, "/web.html")
-})
+    // app.get("/web", (request, response) => {
+    //     response.sendFile(__dirname, "/web.html")
+    // })
 app.get("/appliances", (request, response) => {
     //response.send("This is the list of students " + JSON.stringify(students));
     var result = `<table border=2 >
