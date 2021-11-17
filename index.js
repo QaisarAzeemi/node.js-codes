@@ -4,7 +4,7 @@ const bodyParser = require("body-parser")
 
 var port = process.env.PORT || 8088
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json)
+app.use(bodyParser.json())
 app.use(express.json());
 var appliances = [
     { id: 1, name: "Juicer", quantity: 3 },
