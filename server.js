@@ -34,7 +34,8 @@ app.get("/appliances", (request, response) => {
 
     })
     response.send(result)
-}) app.post("/appliances", (request, responses) => {
+})
+app.post("/appliances", (request, responses) => {
     var appliance = {
         id: appliances.length + 1,
         name: request.body.name,
@@ -42,7 +43,8 @@ app.get("/appliances", (request, response) => {
     }
     appliances.push(appliance)
     response.send("Data is added to the main streem")
-}) app.put("/appliance/:id", (request, response) => {
+})
+app.put("/appliance/:id", (request, response) => {
 
     var appliance = appliances.find(i => i.id === parseInt(request.params.id))
         // var index = students.indexOf(student)
@@ -61,8 +63,10 @@ app.delete("/appliance/:id", (request, response) => {
 })
 
 app.get("/", (request, response) => {
-response.send("This is my first Heroku deployment app running on port " + port);
-}) app.listen(port, () => {
-console.log("The server is up and running on port " + port);
-}) console.log("The server is up and running on port " + port);
+    response.send("This is my first Heroku deployment app running on port " + port);
 })
+app.listen(port, () => {
+        console.log("The server is up and running on port " + port);
+    })
+    // console.log("The server is up and running on port " + port);
+    // })
