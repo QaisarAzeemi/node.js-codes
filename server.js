@@ -2,7 +2,7 @@ const express = require("express");
 var app = express();
 const bodyParser = require("body-parser")
 
-var port = process.env.PORT || 8088
+var port = process.env.PORT //|| 8088
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json)
 app.use(express.json());
