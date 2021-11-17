@@ -6,6 +6,7 @@ var port = process.env.PORT || 8088
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(express.json());
+app.use(express.static('web.html'));
 var appliances = [
     { id: 1, name: "Juicer", quantity: 3 },
     { id: 2, name: "Washig machine", quantity: 2 },
