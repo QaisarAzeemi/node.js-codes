@@ -14,7 +14,7 @@ var appliances = [
 
 app.use(express.json()) // middlewear called to interect with outer world via post. i will connect your machine 
     // with the server
-app.get("/", (request, response) => {
+app.get("/web", (request, response) => {
     response.sendFile(__dirname, "/web.html")
 })
 app.get("/appliances", (request, response) => {
