@@ -36,7 +36,7 @@ app.get("/appliances", (request, response) => {
 
     response.send(result)
 })
-app.post("/postappliances", (request, responses) => {
+app.post("/postappliances", (request, response) => {
     var appliance = {
         id: appliances.length + 1,
         name: request.body.name,
@@ -45,7 +45,7 @@ app.post("/postappliances", (request, responses) => {
     appliances.push(appliance)
     response.send("Data is added to the main streem")
 })
-app.get("/appliances", (request, responses) => {
+app.get("/appliances", (request, response) => {
     var appliance = {
         id: appliances.length + 1,
         name: request.query.name,
